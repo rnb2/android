@@ -89,8 +89,7 @@ public class SheduleAdapter extends ArrayAdapter<Shedule> {
 		sb.append(sh.getTimeBegin());
 		sb.append(" - ");
 		sb.append(sh.getTimeEnd());
-		sb.append(":");
-		
+				
 		return sb.toString();
 	}
 	
@@ -100,4 +99,13 @@ public class SheduleAdapter extends ArrayAdapter<Shedule> {
 		return sh.getFullname();
 	}
 
+	public ArrayList<Shedule> getList() {
+		return list;
+	}
+
+	public void setList(ArrayList<Shedule> list) {
+		this.list = list;
+	}
+
+	
 }

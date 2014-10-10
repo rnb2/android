@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="version">1.7.8</string>
-    <string name="versionBuild">56</string>
+    <string name="version">1.7.9</string>
+    <string name="versionBuild">58</string>
     
     <string name="app_name">Schedule</string>
     

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -44,6 +46,7 @@ public class FragmentDayList extends ListFragment {
 	private ArrayList<Shedule> shedules;
 	private int day;
 	private TextView textViewCaption;
+	private SheduleAdapter adapter;
 	 
 	 public static FragmentDayList getInstance(int day){
 		FragmentDayList fragment = new FragmentDayList();
@@ -82,7 +85,7 @@ public class FragmentDayList extends ListFragment {
 		        android.R.layout.simple_list_item_1, shedules); // data
 		*/
 		
-		SheduleAdapter adapter = new SheduleAdapter(getActivity(), shedules);
+		adapter = new SheduleAdapter(getActivity(), shedules);
 		setListAdapter(adapter);
 	}
 
@@ -118,17 +121,25 @@ public class FragmentDayList extends ListFragment {
 		super.onResume();
 		SheduleLab lab = SheduleLab.getInstance(getActivity(), day);
 		shedules = lab.getShedules(day);
-		updateValues(shedules);
+		Collections.sort(shedules);
+		
+		adapter.getList().clear();
+		adapter.getList().addAll(shedules);
+		adapter.notifyDataSetChanged();
 	}
 	
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		/*
-		Intent intent = new Intent(getActivity(), SettingActivity.class);
+		
+		/*Intent intent = new Intent(getActivity(), SettingActivity.class);
 		intent.putExtra(Shedule.JSON_NUMBER_DAY+"_", day);
-		startActivity(intent);*/
 
+		SheduleAdapter listAdapter = (SheduleAdapter) getListAdapter();
+		Shedule shedule = listAdapter.getItem(position);
+		
+		intent.putExtra(Shedule.JSON_ID2, shedule.getId());
+		startActivityForResult(intent, 1);*/
 	}
 	
 	/**

@@ -11,8 +11,6 @@ import java.util.UUID;
 import org.json.JSONException;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.widget.Toast;
 
 import com.rnb.shedule5.entity.Shedule;
@@ -27,7 +25,7 @@ public class SheduleLab {
 	private static SheduleLab instance;
 	
 	private Context context;
-	private ArrayList<Shedule> shedules;
+	private ArrayList<Shedule> shedules = new ArrayList<Shedule>();
 	private SheduleJSON sheduleJSON;
 	//private static final String TAG = "rnb";
 	
