@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/fragmentDayLayout" >
+    android:id="@+id/fragmentDayLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/titleDayText1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layoutTitleFragmentDay"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name">
-    </TextView>
+        android:gravity="center_horizontal"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp" >
+
+        <TextView
+            android:id="@+id/titleDayText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+
+        </TextView>
+        
+    </LinearLayout>
 
     <ListView
         android:id="@id/android:list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp" >
+
     </ListView>
 
     <TextView
