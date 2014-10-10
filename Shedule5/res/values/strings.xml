@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="version">1.7.8</string>
+    <string name="versionBuild">56</string>
+    
+    <string name="app_name">Schedule</string>
+    
+    <string name="title_day1">Monday</string>
+    <string name="title_day2">Tuesday</string>
+    <string name="title_day3">Wednesday</string>
+    <string name="title_day4">Thursday</string>
+    <string name="title_day5">Friday</string>
+    <string name="title_day6">Saturday</string>
+    <string name="title_day7">Sunday</string>
+    
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    
+    <string name="action_settings">Settings</string>
+    <string name="action_about">About</string>
+    <string name="action_about_vers">Version:</string>
+    <string name="action_about_comp">&#169; R.N.B. Inc, 2014</string>
+    <string name="action_about_mail">Send message to budukh.rn@gmail.com</string>
+    <string name="action_menu_share">Send</string>
+    <string name="action_menu_import">Import</string>
+    
+    <string name="dialog_msg_delete">Are you sure you want to delete the lesson %1$s?</string>
+    <string name="dialog_title_delete">Delete lesson</string>
+    
+    <string name="toast_selectLesson">Select the lesson!</string>
+    <string name="toast_doubleLesson">The lesson has already been added!</string>
+    <string name="toast_inputNameLesson">Fill in at least the short title of the lesson!</string>
+    <string name="toast_deleteNoFound">Not found a lesson for delete!</string>
+    <string name="toast_inputTimeBegin">Enter the start of the lesson!</string>
+    <string name="toast_inputTimeEnd">Enter the end time of the lesson!</string>
+    
+    <string name="radio_oneDay">Day</string>
+    <string name="radio_week">Week</string>
+    <string name="radio_currentDay">Current day</string>
+
+    <string-array name="lessons">
+        <item>Lesson 1</item>
+        <item>Lesson 2</item>
+        <item>Lesson 3</item>
+        <item>Lesson 4</item>
+        <item>Lesson 5</item>
+        <item>Lesson 6</item>
+        <item>Lesson 7</item>
+        <item>Lesson 8</item>
+        <item>Lesson 9</item>
+        <item>Lesson 10</item>
+    </string-array>
+
+    <string name="nameIs">Full name:</string>
+    <string name="save">Save</string>
+    <string name="saveSD">Save on SD card</string>
+    <string name="nameShort">Short name:</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="timeLesson">Lesson time:</string>
+    <string name="dot2">-</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Send</string>
+    <string name="emptyData">No data</string>
+
+</resources>

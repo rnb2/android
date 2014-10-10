@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="20dp" >
+
+    <ImageButton
+        android:id="@+id/button1"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:contentDescription="@string/action_about"
+        android:focusable="false"
+        android:longClickable="false"
+        android:src="@drawable/ic_launcher" />
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="30dp" >
+
+        <TextView
+            android:id="@+id/textViewAboutVers"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_about_vers"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/textViewAboutComp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_about_comp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:gravity="center_horizontal" 
+            android:paddingTop="6dp"/>
+        
+        <TextView
+            android:id="@+id/textViewAboutMail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="email"
+            android:gravity="center_horizontal"
+            android:paddingTop="30dp"
+            android:text="@string/action_about_mail"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+    </LinearLayout>
+
+</LinearLayout>

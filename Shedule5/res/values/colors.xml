@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="Blue500">#5677FC</color>
+    <color name="Purple500">#673ab7</color>
+    <color name="Lime500">#cddc39</color>
+    <color name="Pink500">#e91e63</color>
+    <color name="DeepOrange500">#ff5722</color>
+    <color name="Red500">#e51c23</color>
+    <color name="Indigo500">#3f51b5</color>
+
+    <color name="Blue50">#e7e9fd</color>
+    <color name="Purple50">#f3e5f5</color>
+    <color name="Lime50">#f9fbe7</color>
+    <color name="Pink50">#fce4ec</color>
+    <color name="DeepOrange50">#fbe9e7</color>
+    <color name="Red50">#fde0dc</color>
+    <color name="Indigo50">#e8eaf6</color>
+    
+    <color name="BlueGrey100">#cfd8dc</color>
+
+</resources>

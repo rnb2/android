@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="version">1.7.9</string>
+    <string name="versionBuild">57</string>
+    
+    <string name="app_name">Расписание</string>
+    
+    <string name="title_day1">Понедельник</string>
+    <string name="title_day2">Вторник</string>
+    <string name="title_day3">Среда</string>
+    <string name="title_day4">Четверг</string>
+    <string name="title_day5">Пятница</string>
+    <string name="title_day6">Суббота</string>
+    <string name="title_day7">Воскресение</string>
+    
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    
+    <string name="action_settings">Настройки</string>
+    <string name="action_about">О программе</string>
+    <string name="action_about_vers">Версия:</string>
+    <string name="action_about_comp">&#169; R.N.B. Inc, 2014</string>
+    <string name="action_about_mail">Отправить отзыв: budukh.rn@gmail.com</string>
+    <string name="action_menu_share">Отправить</string>
+    <string name="action_menu_import">Импортировать</string>
+    <string name="action_import">Импорт</string>
+    <string name="action_path">Путь</string>
+    
+    <string name="dialog_msg_delete">Вы действительно хотите удалить урок %1$s?</string>
+    <string name="dialog_title_delete">Удаление урока</string>
+    
+    <string name="toast_selectLesson">Выберете урок!</string>
+    <string name="toast_doubleLesson">Урок уже добавлен!</string>
+    <string name="toast_inputNameLesson">Заполните хотя бы краткое наименование урока!</string>
+    <string name="toast_deleteNoFound">Нет урока для удаления!</string>
+    <string name="toast_inputTimeBegin">Введите время начала урока!</string>
+    <string name="toast_inputTimeEnd">Введите время окончания урока!</string>
+    <string name="toast_sendData">Данные отправлены!</string>
+    
+    <string name="radio_oneDay">День</string>
+    <string name="radio_week">Неделя</string>
+    <string name="radio_currentDay">Текущий день</string>
+
+    <string-array name="lessons">
+        <item>Урок 1</item>
+        <item>Урок 2</item>
+        <item>Урок 3</item>
+        <item>Урок 4</item>
+        <item>Урок 5</item>
+        <item>Урок 6</item>
+        <item>Урок 7</item>
+        <item>Урок 8</item>
+        <item>Урок 9</item>
+        <item>Урок 10</item>
+    </string-array>
+
+    <string name="nameIs">Полное:</string>
+    <string name="save">Сохранить</string>
+    <string name="saveSD">Сохранить на SD карте</string>
+    <string name="nameShort">Краткое:</string>
+    <string name="add">Добавить</string>
+    <string name="delete">Удалить</string>
+    <string name="timeLesson">Время урока:</string>
+    <string name="dot2">-</string>
+    <string name="cancel">Отмена</string>
+    <string name="send">Отправить</string>
+    <string name="emptyData">Нет данных</string>
+
+</resources>
