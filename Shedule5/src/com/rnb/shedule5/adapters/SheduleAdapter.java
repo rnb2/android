@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -28,6 +29,8 @@ public class SheduleAdapter extends ArrayAdapter<Shedule> {
 	private ArrayList<Shedule> list = new ArrayList<Shedule>();
 	private LayoutInflater inflater;
 
+	private int mLastPosition = 1;
+	
 	/**
 	 * Отображение списка уроков
 	 * @author budukh-rn, 10.10.2014
@@ -44,6 +47,7 @@ public class SheduleAdapter extends ArrayAdapter<Shedule> {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View  view = convertView;
+				
 		if(view == null)
 				view = inflater.inflate(R.layout.day_list_item, parent, false);
 		Typeface typeface = Typeface.createFromAsset(context.getAssets(), AppUtil.PATH_FONTS_2);
@@ -57,6 +61,23 @@ public class SheduleAdapter extends ArrayAdapter<Shedule> {
 		textLesson.setText(getNameLesson(shedule));
 		
 		textLesson.setTypeface(typeface);
+		
+		 // This tells the view where to start based on the direction of the scroll.
+        // If the last position to be loaded is <= the current position, we want
+        // the views to start below their ending point (500f further down).
+        // Otherwise, we start above the ending point.
+        float initialTranslation = (mLastPosition <= position ? 500f : -500f);
+
+        view.setTranslationY(initialTranslation);
+        view.animate()
+                .setInterpolator(new DecelerateInterpolator(1.0f))
+                .translationY(0f)
+                .setDuration(300l)
+                .setListener(null);
+
+        // Keep track of the last position we loaded
+        mLastPosition = position;
+
 		
 		return view;
 	}
@@ -105,6 +126,10 @@ public class SheduleAdapter extends ArrayAdapter<Shedule> {
 
 	public void setList(ArrayList<Shedule> list) {
 		this.list = list;
+	}
+
+	public int getmLastPosition() {
+		return mLastPosition;
 	}
 
 	
