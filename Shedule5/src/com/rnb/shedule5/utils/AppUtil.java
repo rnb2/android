@@ -3,6 +3,8 @@
  */
 package com.rnb.shedule5.utils;
 
+import java.util.regex.Pattern;
+
 import android.content.Context;
 import android.os.Environment;
 
@@ -17,12 +19,37 @@ public final class AppUtil {
 	public static final String PATH_FONTS_2 = "fonts/ytX8zlzL.ttf";
 	public static final String fileNameJSON = "shedules";
 	public static final String filePrefix = ".json"; 
-	public static final String directorySd = Environment.getExternalStorageDirectory().getAbsolutePath() + "/schedule5"; 
-
+	public static final String directorySd = Environment.getExternalStorageDirectory().getAbsolutePath() + "/schedule5";
+	private static final String prefix = "_";
+	public static final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+	public static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", Pattern.CASE_INSENSITIVE);
 	/**
 	 * 
 	 */
 	public AppUtil() {
+	}
+	
+	/**
+	 * Добавление лидирующего "0" 
+	 * @param c
+	 * @return
+	 */
+	public static String padding_str(int c) {
+		if (c >= 10)
+			return String.valueOf(c);
+		else
+			return "0" + String.valueOf(c);
+	}
+	
+	public  static String getFileName(Integer numberDay, String path) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(path);
+		sb.append("/");
+		sb.append(fileNameJSON);
+		sb.append(prefix);
+		sb.append(numberDay);
+		sb.append(filePrefix);
+		return sb.toString();
 	}
 
 	public static String[] getDaysStrings(Context context) {

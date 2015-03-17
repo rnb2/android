@@ -9,6 +9,12 @@
         android:showAsAction="withText|ifRoom"
         android:title="@string/add"/>
     <item
+        android:id="@+id/action_menu_save"
+        android:icon="@android:drawable/ic_menu_save"
+        android:orderInCategory="100"
+        android:showAsAction="withText|ifRoom"
+        android:title="@string/action_menu_save"/>
+    <item
         android:id="@+id/action_menu_share"
         android:icon="@android:drawable/ic_menu_share"
         android:orderInCategory="100"

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="version">1.7.9</string>
-    <string name="versionBuild">58</string>
+    <string name="version">1.8.5</string>
+    <string name="versionBuild">85</string>
     
     <string name="app_name">Schedule</string>
     
@@ -23,6 +23,7 @@
     <string name="action_about_comp">&#169; R.N.B. Inc, 2014</string>
     <string name="action_about_mail">Send message to budukh.rn@gmail.com</string>
     <string name="action_menu_share">Send</string>
+    <string name="action_menu_save">Save</string>
     <string name="action_menu_import">Import</string>
     
     <string name="dialog_msg_delete">Are you sure you want to delete the lesson %1$s?</string>
@@ -34,10 +35,16 @@
     <string name="toast_deleteNoFound">Not found a lesson for delete!</string>
     <string name="toast_inputTimeBegin">Enter the start of the lesson!</string>
     <string name="toast_inputTimeEnd">Enter the end time of the lesson!</string>
+    <string name="toast_sendData">Data was send!</string>
+    <string name="toast_importData">Data was imported!</string>
+    <string name="toast_importDataError">Error import data!</string>
+    <string name="toast_SDCard_Error">SD-card not found: %1$s</string>
+    <string name="toast_file_error">Error! File not found.</string>
     
-    <string name="radio_oneDay">Day</string>
+    <string name="radio_oneDayCurrent">Today</string>
+    <string name="radio_oneDay">Select day</string>
     <string name="radio_week">Week</string>
-    <string name="radio_currentDay">Current day</string>
+    
 
     <string-array name="lessons">
         <item>Lesson 1</item>
@@ -58,10 +65,13 @@
     <string name="nameShort">Short name:</string>
     <string name="add">Add</string>
     <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
     <string name="timeLesson">Lesson time:</string>
     <string name="dot2">-</string>
     <string name="cancel">Cancel</string>
     <string name="send">Send</string>
     <string name="emptyData">No data</string>
+    <string name="title_email">Email:</string>
+    <string name="title_subject">Subject:</string>
 
 </resources>

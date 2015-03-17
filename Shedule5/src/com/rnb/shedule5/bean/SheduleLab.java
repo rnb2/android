@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import org.json.JSONException;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.Toast;
 
@@ -97,15 +98,32 @@ public class SheduleLab {
 	public boolean saveShedule(){
 		try{
 			sheduleJSON.save(shedules);
-			//Log.i(TAG, "save crime !!!!");
 		}catch(Exception x){
-			//Log.i(TAG, "ERRor save crime !!!!", x);
 			Toast.makeText(context, "Error save saveShedule !!!!", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		return true;
 	}
 	
+	@SuppressLint("UseSparseArrays")
+	public boolean saveSheduleExternal(int day, String path){
+		try{
+			shedules = new ArrayList<Shedule>();
+			HashMap<Integer, ArrayList<Shedule>> map = new HashMap<Integer, ArrayList<Shedule>>();
+			ArrayList<Shedule> sheduleDays = sheduleJSON.load(day, path);
+					if(!sheduleDays.isEmpty()){
+						map.put(day, sheduleDays);
+					}	
+			sheduleJSON.save(sheduleDays);
+		}catch(Exception x){
+			x.printStackTrace();
+			Toast.makeText(context, x.getMessage(), Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		return true;
+	}
+	
+	@SuppressLint("UseSparseArrays")
 	public boolean saveSheduleExternal(int day){
 		try{
 			shedules = new ArrayList<Shedule>();
@@ -124,6 +142,7 @@ public class SheduleLab {
 		return true;
 	}
 	
+	@SuppressLint("UseSparseArrays")
 	public boolean saveSheduleExternalAll(){
 		try{
 			shedules = new ArrayList<Shedule>();
@@ -152,6 +171,22 @@ public class SheduleLab {
 	public ArrayList<Shedule> getShedules(int day) {
 		try {
 			shedules = sheduleJSON.load(day);
+	
+		} catch (IOException | JSONException e) {
+			shedules = new ArrayList<Shedule>();
+		}
+		return shedules;
+	}
+	
+	/**
+	 * Загрузка из файла с SD card
+	 * @param day
+	 * @param path
+	 * @return
+	 */
+	public ArrayList<Shedule> getShedulesExternal(int day, String path) {
+		try {
+			shedules = sheduleJSON.load(day, path);
 		} catch (IOException | JSONException e) {
 			shedules = new ArrayList<Shedule>();
 		}

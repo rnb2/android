@@ -3,6 +3,7 @@
  */
 package com.rnb.shedule5.entity;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import org.json.JSONException;
@@ -12,8 +13,15 @@ import org.json.JSONObject;
  * @author budukh-rn, 02.09.2014
  *
  */
-public class Shedule implements Comparable<Shedule>{
+public class Shedule implements Serializable, Comparable<Shedule>{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public static final String EXTA_SHEDULE_ID = "com.rnb.shedule5.entity.shedule.shedule_id";
+	public static final String EXTA_SHEDULE_LESSON = "com.rnb.shedule5.entity.shedule.numberLesson";
+	public static final String EXTA_SHEDULE_DAY = "com.rnb.shedule5.entity.shedule.numberDay";
 	public static final String JSON_NAME = "name";
 	public static final String JSON_FULLNAME = "fullname";
 	public static final String JSON_NUMBER_LESSON = "numberLesson";

@@ -79,11 +79,8 @@ public class SettingFragmentAdd extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		currentDay = getArguments().getInt(Shedule.JSON_NUMBER_DAY);
 		lab = SheduleLab.getInstance(getActivity(), currentDay);
-		
-		//Log.i(TAG, "SettingFragment2: onCreate currentDay="+ currentDay);
 	}
 	
 	@Override
@@ -144,13 +141,13 @@ public class SettingFragmentAdd extends Fragment {
 		return new OnTimeSetListener() {
 			public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 				 if (id == DIALOG_TIME_B) {	
-					textTimeBegin.setText(new StringBuilder().append(padding_str(hourOfDay)).append(":").append(padding_str(minute)));
+					textTimeBegin.setText(new StringBuilder().append(AppUtil.padding_str(hourOfDay)).append(":").append(AppUtil.padding_str(minute)));
 				 }
 				 
 				 if (id == DIALOG_TIME_E) {	
 					 myHourB = hourOfDay;
 					 myMinuteB = minute;
-					 textTimeEnd.setText(new StringBuilder().append(padding_str(hourOfDay)).append(":").append(padding_str(minute)));
+					 textTimeEnd.setText(new StringBuilder().append(AppUtil.padding_str(hourOfDay)).append(":").append(AppUtil.padding_str(minute)));
 				 }		
 				
 			};
@@ -158,12 +155,7 @@ public class SettingFragmentAdd extends Fragment {
 	}
 	  
 	  
-	private static String padding_str(int c) {
-		if (c >= 10)
-			return String.valueOf(c);
-		else
-			return "0" + String.valueOf(c);
-	}
+	
 
 	
 	

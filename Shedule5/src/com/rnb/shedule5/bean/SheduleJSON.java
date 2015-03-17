@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -22,6 +23,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import android.content.Context;
+//import android.util.Log;
 
 import com.rnb.shedule5.entity.Shedule;
 import com.rnb.shedule5.utils.AppUtil;
@@ -32,6 +34,7 @@ import com.rnb.shedule5.utils.AppUtil;
  */
 public class SheduleJSON {
 
+	//private static final String TAG = "rnb2";
 	private static final String prefix = "_";
 	private String fileName;
 	private Context context;
@@ -93,6 +96,53 @@ public class SheduleJSON {
 		return shedule;
 	}
 	
+			
+	/**
+	 *  Загрузка из fileName and save to PrivateFile
+	 * @param day
+	 * @param path
+	 * @return
+	 * @throws IOException
+	 * @throws JSONException
+	 */
+	public ArrayList<Shedule> load(Integer day, String path) throws IOException,
+			JSONException {
+		ArrayList<Shedule> list = new ArrayList<Shedule>();
+		BufferedReader reader = null;
+
+		try {
+			String name = getFileName(day);
+			File sdFile = new File(path, name);
+			
+			reader = new BufferedReader(new FileReader(sdFile));
+			
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				sb.append(line);
+			}
+
+			JSONArray array = (JSONArray) new JSONTokener(sb.toString())
+					.nextValue();
+			for (int i = 0; i < array.length(); i++) {
+				JSONObject object = array.getJSONObject(i);
+				if (day == object.getInt(Shedule.JSON_NUMBER_DAY)){
+					Shedule shedule = new Shedule(object);
+					list.add(shedule);
+					
+					saveToPrivateFile(shedule, object);
+				}	
+			}
+		} catch (FileNotFoundException e) {
+
+		} finally {
+			if (reader != null)
+				reader.close();
+		}
+
+		return list;
+	}
+	
 	/**
 	 * Загрузка из fileName
 	 * 
@@ -126,7 +176,7 @@ public class SheduleJSON {
 					list.add(new Shedule(object));
 			}
 		} catch (FileNotFoundException e) {
-
+			//e.printStackTrace();
 		} finally {
 			if (reader != null)
 				reader.close();
@@ -144,18 +194,11 @@ public class SheduleJSON {
 		
 		File dir = new File (AppUtil.directorySd);
 		dir.mkdir();
-		
-		/*Log.i("rnb",  " map="+ map.size());
-		
-		for(Integer key :map.keySet()){
-			Log.i("rnb",  " key="+ key);
-		}*/
+
 		
 		for(Integer key :map.keySet()){
-			//Log.i("rnb",  "2: key="+ key);
-			
+		
 			ArrayList<Shedule> shedules = map.get(key);
-			//Log.i("rnb",  "2: shedules="+ shedules);		
 			
 			JSONArray jsonArray = new JSONArray();
 			String name = getFileName(key);
@@ -198,43 +241,73 @@ public class SheduleJSON {
 	}
 	
 	/**
-	 * Сохранение в файл
+	 * Сохранение в файл, Context.MODE_PRIVATE
 	 * 
 	 * @param shedules
 	 */
 	public void save(ArrayList<Shedule> shedules) {
-		
 			
 		JSONArray jsonArray = new JSONArray();
 
-		for (Shedule crime : shedules) {
+		for (Shedule shedule : shedules)
+			saveToPrivateFile(jsonArray, shedule);
+		
+	}
 
-			Writer writer = null;
+	private void saveToPrivateFile(JSONArray jsonArray, Shedule shedule) {
+		Writer writer = null;
 
-			try {
+		try {
 
-				jsonArray.put(crime.toJsonObject());
+			jsonArray.put(shedule.toJsonObject());
 
-				String name = getFileName(crime.getNumberDay());
-				OutputStream outputStream = context.openFileOutput(name,
-						Context.MODE_PRIVATE);
-				writer = new OutputStreamWriter(outputStream);
-				writer.write(jsonArray.toString());
-			} catch (IOException | JSONException e) {
-				e.printStackTrace();
-			} finally {
-				if (writer != null) {
-					try {
-						writer.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+			String name = getFileName(shedule.getNumberDay());
+			
+			OutputStream outputStream = context.openFileOutput(name,
+					Context.MODE_PRIVATE);
+			writer = new OutputStreamWriter(outputStream);
+			writer.write(jsonArray.toString());
+		} catch (IOException | JSONException e) {
+			e.printStackTrace();
+		} finally {
+			if (writer != null) {
+				try {
+					writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 			}
+		}
+	}
+	
+	private void saveToPrivateFile(Shedule shedule, JSONObject jsonObject) {
+		Writer writer = null;
 
+		try {
+			JSONArray jsonArray = new JSONArray();
+			jsonArray.put(jsonObject);
+			
+			String name = getFileName(shedule.getNumberDay());
+			
+			OutputStream outputStream = context.openFileOutput(name,
+					Context.MODE_PRIVATE);
+			writer = new OutputStreamWriter(outputStream);
+			writer.write(jsonArray.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (writer != null) {
+				try {
+					writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
+	
+	
 	private String getFileName(Integer numberDay) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(fileName);

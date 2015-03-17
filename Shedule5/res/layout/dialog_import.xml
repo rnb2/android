@@ -8,17 +8,24 @@
         android:id="@+id/dialogImportRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" >
+        android:layout_gravity="left" 
+        android:layout_marginLeft="10dp">
 
         <RadioButton
             android:id="@+id/radio0_import"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/radio_oneDay" />
+            android:text="@string/radio_oneDayCurrent" />
 
         <RadioButton
             android:id="@+id/radio1_import"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_oneDay" />
+
+        <RadioButton
+            android:id="@+id/radio2_import"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/radio_week" />
@@ -27,21 +34,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:paddingLeft="6dp" >
 
         <Button
             android:id="@+id/dialogImportButton_Path"
+            style="?android:attr/buttonBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/action_path" />
 
-        <TextView
+        <EditText
             android:id="@+id/dialogImportText_Path"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
+            android:inputType="text"
             android:text="@string/action_menu_import" />
 
+        <Spinner
+            android:id="@+id/dialogImportSpinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
     </LinearLayout>
 
     <LinearLayout
@@ -56,14 +71,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel" />
-        
+
         <Button
             android:id="@+id/action_dialogImport_send"
             style="?android:attr/actionButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/action_import" />
-
     </LinearLayout>
 
 </LinearLayout>
